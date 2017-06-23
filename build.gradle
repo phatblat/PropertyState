@@ -11,6 +11,13 @@ greeting {
     outputFiles = files('a.txt', 'b.txt')
 }
 
+// Show the contents of outputFiles
+hello.doLast {
+    outputFiles.each { file ->
+        println "${file.name}: ${file.text}"
+    }
+}
+
 class GreetingPlugin implements Plugin<Project> {
     void apply(Project project) {
         // Add the 'greeting' extension object
