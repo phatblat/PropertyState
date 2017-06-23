@@ -6,3 +6,7 @@ Carthage/
 Pods/
 .rubygems/
 bin/
+
+# Gradle
+.gradle/
+build/
