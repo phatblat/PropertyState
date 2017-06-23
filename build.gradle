@@ -7,14 +7,23 @@
 apply plugin: GreetingPlugin
 
 greeting {
+    // Message set during configuration phase
     message = 'Hi from Gradle'
-    outputFiles = files('a.txt', 'b.txt')
+    outputFiles = files 'a.txt', 'b.txt'
 }
 
 // Show the contents of outputFiles
-hello.doLast {
-    outputFiles.each { file ->
-        println "${file.name}: ${file.text}"
+hello {
+    doFirst {
+        // Message changed on extension during execution phase, but before task action runs
+        project.greeting.message = 'Hello from the execution phase!'
+    }
+    doLast {
+        // Changed again, after printing
+        project.greeting.message = 'Changed again in doLast'
+        outputFiles.each { file ->
+            println "${file.name}: ${file.text}"
+        }
     }
 }
 
