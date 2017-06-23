@@ -1,3 +1,12 @@
+# PropertyState
+
+# Usage
+
+Use the Gradle wrapper to run the `hello` task.
+
+```
+./gradlew hello
+```
 
 ## License
 
